@@ -1,0 +1,68 @@
+{
+    "name": "psalm/plugin-symfony",
+    "description": "Psalm Plugin for Symfony",
+    "type": "psalm-plugin",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Farhad Safarov",
+            "email": "farhad.safarov@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^7.1",
+        "ext-simplexml": "*",
+        "symfony/framework-bundle": "^3.0 || ^4.0 || ^5.0",
+        "vimeo/psalm": "^3.17"
+    },
+    "require-dev": {
+        "doctrine/orm": "^2.7",
+        "phpunit/phpunit": "~7.5",
+        "symfony/cache-contracts": "^1.0 || ^2.0",
+        "symfony/console": "*",
+        "symfony/messenger": "^4.2 || ^5.0",
+        "symfony/security-guard": "^4.0 || ^5.0",
+        "symfony/validator": "*",
+        "twig/twig": "^2.10 || ^3.0",
+        "weirdan/codeception-psalm-module": "~0.9"
+    },
+    "autoload": {
+        "psr-4": {
+            "Psalm\\SymfonyPsalmPlugin\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Psalm\\SymfonyPsalmPlugin\\Tests\\Acceptance\\": ["tests/acceptance/_support"],
+            "Psalm\\SymfonyPsalmPlugin\\Tests\\Fixture\\": ["tests/fixture"],
+            "Psalm\\SymfonyPsalmPlugin\\Tests\\": ["tests/unit"]
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "psalm" : {
+            "pluginClass": "Psalm\\SymfonyPsalmPlugin\\Plugin"
+        }
+    },
+    "scripts": {
+        "check": [
+            "@analyze",
+            "@test"
+        ],
+        "test": [
+            "@phpunit",
+            "@codeception"
+        ],
+        "analyze": "psalm --find-dead-code --find-unused-psalm-suppress --long-progress",
+        "phpunit": "phpunit --testdox",
+        "codeception": [
+            "codecept build",
+            "codecept run -v -g symfony-common"
+        ]
+    },
+    "suggest": {
+        "weirdan/doctrine-psalm-plugin": "If Doctrine is used, it is recommended install this plugin"
+    }
+}

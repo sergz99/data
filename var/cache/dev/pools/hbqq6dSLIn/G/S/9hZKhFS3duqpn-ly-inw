@@ -1,0 +1,52 @@
+<?php //%255BApp%255CController%255CArticle%255CGetArticlesFeedController%255D%255B1%255D
+
+return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
+    $o = [
+        clone (($p = &\Symfony\Component\VarExporter\Internal\Registry::$prototypes)['Symfony\\Component\\Routing\\Annotation\\Route'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Routing\\Annotation\\Route')),
+        clone ($p['FOS\\RestBundle\\Controller\\Annotations\\QueryParam'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('FOS\\RestBundle\\Controller\\Annotations\\QueryParam')),
+        clone $p['FOS\\RestBundle\\Controller\\Annotations\\QueryParam'],
+        clone ($p['Sensio\\Bundle\\FrameworkExtraBundle\\Configuration\\Security'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Sensio\\Bundle\\FrameworkExtraBundle\\Configuration\\Security')),
+    ],
+    null,
+    [
+        'Symfony\\Component\\Routing\\Annotation\\Route' => [
+            'path' => [
+                '/api/articles/feed',
+            ],
+            'name' => [
+                'api_articles_feed',
+            ],
+            'methods' => [
+                [
+                    'GET',
+                ],
+            ],
+        ],
+        'stdClass' => [
+            'requirements' => [
+                1 => '\\d+',
+                '\\d+',
+            ],
+            'name' => [
+                1 => 'limit',
+                'offset',
+            ],
+            'default' => [
+                1 => '20',
+                '0',
+            ],
+        ],
+        'Sensio\\Bundle\\FrameworkExtraBundle\\Configuration\\Security' => [
+            'expression' => [
+                3 => 'is_granted(\'ROLE_USER\')',
+            ],
+        ],
+    ],
+    [
+        $o[0],
+        $o[1],
+        $o[2],
+        $o[3],
+    ],
+    []
+); }];

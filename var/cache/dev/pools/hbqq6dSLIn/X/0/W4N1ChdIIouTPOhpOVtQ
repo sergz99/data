@@ -1,0 +1,46 @@
+<?php //%255BApp%255CController%255CUser%255CUpdateUserController%255D%255B1%255D
+
+return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
+    $o = [
+        clone (($p = &\Symfony\Component\VarExporter\Internal\Registry::$prototypes)['Symfony\\Component\\Routing\\Annotation\\Route'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Routing\\Annotation\\Route')),
+        clone ($p['FOS\\RestBundle\\Controller\\Annotations\\View'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('FOS\\RestBundle\\Controller\\Annotations\\View')),
+        clone ($p['Sensio\\Bundle\\FrameworkExtraBundle\\Configuration\\Security'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Sensio\\Bundle\\FrameworkExtraBundle\\Configuration\\Security')),
+    ],
+    null,
+    [
+        'Symfony\\Component\\Routing\\Annotation\\Route' => [
+            'path' => [
+                '/api/user',
+            ],
+            'name' => [
+                'api_users_put',
+            ],
+            'methods' => [
+                [
+                    'PUT',
+                ],
+            ],
+        ],
+        'FOS\\RestBundle\\Controller\\Annotations\\View' => [
+            'statusCode' => [
+                1 => 200,
+            ],
+            'serializerGroups' => [
+                1 => [
+                    'me',
+                ],
+            ],
+        ],
+        'Sensio\\Bundle\\FrameworkExtraBundle\\Configuration\\Security' => [
+            'expression' => [
+                2 => 'is_granted(\'ROLE_USER\')',
+            ],
+        ],
+    ],
+    [
+        $o[0],
+        $o[1],
+        $o[2],
+    ],
+    []
+); }];
